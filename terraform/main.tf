@@ -23,7 +23,7 @@ resource "azurerm_linux_web_app" "main" {
 
   depends_on = [
     azurerm_resource_group.main,
-    azurerm_app_service_plan.main
+    azurerm_service_plan.main
   ]
 
   site_config {}
