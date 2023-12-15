@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "main" {
   location = var.location
 }
 
-resource "azurerm_app_service_plan" "main" {
+resource "azurerm_service_plan" "main" {
   name                = "api-demo-service-plan"
   location            = var.location
   resource_group_name = var.demo_api_rg
