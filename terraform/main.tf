@@ -7,17 +7,12 @@ resource "azurerm_service_plan" "main" {
   name                = "api-demo-service-plan"
   location            = var.location
   resource_group_name = var.demo_api_rg
-  kind                = "Linux"
-  reserved            = true
+  os_type             = "Linux"
+  sku_name            = "S1"
 
   depends_on = [
     azurerm_resource_group.main
   ]
-
-  sku {
-    tier = "Standard"
-    size = "S1"
-  }
 }
 
 resource "azurerm_linux_web_app" "main" {
