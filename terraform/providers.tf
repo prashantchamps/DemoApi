@@ -1,3 +1,7 @@
+provider "azurerm" { 
+  features {}  
+}
+
 terraform {
   backend "azurerm" {
     resource_group_name  = "main-infra"
@@ -5,8 +9,4 @@ terraform {
     container_name       = "apitfstate"
     key                  = "actions.tfstate"
   }
-}
-
-provider "azurerm" { 
-  features {}  
 }
