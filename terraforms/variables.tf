@@ -8,3 +8,8 @@ variable "tf_storage_rg_name" {
   description = "name of the storage account resource group"
   default     = "main-infra"
 }
+variable "tf_storage_container_name" {
+  type        = string
+  description = "name of the storage account resource group"
+  default     = "apitfstate"
+}
