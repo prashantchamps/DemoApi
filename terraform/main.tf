@@ -27,7 +27,7 @@ resource "azurerm_linux_web_app" "main" {
   service_plan_id     = azurerm_service_plan.main.id
 
   depends_on = [
-    azurerm_resource_group.main
+    azurerm_resource_group.main,
     azurerm_app_service_plan.main
   ]
 
