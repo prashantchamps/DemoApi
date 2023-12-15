@@ -16,7 +16,7 @@ resource "azurerm_service_plan" "main" {
 }
 
 resource "azurerm_linux_web_app" "main" {
-  name                = "api-demo-app"
+  name                = "api-demo-app-service"
   resource_group_name = var.demo_api_rg
   location            = var.location
   service_plan_id     = azurerm_service_plan.main.id
