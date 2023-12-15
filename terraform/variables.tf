@@ -1,7 +1,7 @@
 variable "location" {
   type        = string
   description = "Location of Resources"
-  default     = "eastus"
+  default     = "East US"
 }
 variable "demo_api_rg" {
   type        = string
