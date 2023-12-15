@@ -13,3 +13,8 @@ variable "tf_storage_container_name" {
   description = "name of the storage account resource group"
   default     = "apitfstate"
 }
+variable "location" {
+  type        = string
+  description = "Location of Resources"
+  default     = "eastus"
+}
