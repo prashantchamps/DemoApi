@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "main" {
-  name     = "hobbes"
+  name     = var.demo_api_rg
   location = var.location
 }
 
