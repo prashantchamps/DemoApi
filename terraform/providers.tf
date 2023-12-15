@@ -5,10 +5,10 @@ provider "azurerm" {
 
 terraform {
   backend "azurerm" {
-    resource_group_name  = "main-infra"
-    storage_account_name = "mydemotfstate"
-    container_name       = "tfstate"
-    key                  = "terraform.tfstate"
+    resource_group_name  = var.tf_storage_rg_name
+    storage_account_name = var.tf_storage_name
+    container_name       = var.tf_storage_container_name
+    key                  = "actions.tfstate"
   }
 }
 
