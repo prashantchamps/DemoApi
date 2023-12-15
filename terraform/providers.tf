@@ -10,3 +10,5 @@ terraform {
     key                  = "actions.tfstate"
   }
 }
+
+data "azurerm_client_config" "current" {}
