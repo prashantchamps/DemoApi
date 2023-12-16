@@ -38,6 +38,5 @@ resource "azurerm_linux_web_app" "main" {
   }
 
   app_settings = {
-    FUNCTIONS_WORKER_RUNTIME = "java"
   }
 }
