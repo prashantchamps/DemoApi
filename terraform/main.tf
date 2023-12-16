@@ -30,9 +30,7 @@ resource "azurerm_linux_web_app" "main" {
   site_config {
     minimum_tls_version = "1.2"
     application_stack {
-      java_version = "jre17"
-      java_server  = "JAVA"
-      java_server_version = "17"
+      java_version = "JAVA|17-java17"
     }
   }
 }
