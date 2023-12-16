@@ -29,8 +29,15 @@ resource "azurerm_linux_web_app" "main" {
 
   site_config {
     minimum_tls_version = "1.2"
+    http2_enabled = true
+    ftps_state = "AllAllowed"
+    #application_insights_key = azurerm_application_insights.appinsights[count.index].instrumentation_key
     application_stack {
-      java_version = 17
+      java_version = "17"
     }
+  }
+
+  app_settings = {
+    FUNCTIONS_WORKER_RUNTIME = "java"
   }
 }
