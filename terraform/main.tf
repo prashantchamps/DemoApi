@@ -34,4 +34,8 @@ resource "azurerm_linux_web_app" "main" {
       java_version = "17"
     }
   }
+
+  protocols {
+    enable_http2 = true
+  }
 }
