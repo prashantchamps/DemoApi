@@ -36,3 +36,12 @@ resource "azurerm_linux_web_app" "main" {
     }
   }
 }
+
+data "azurerm_log_analytics_workspace" "main" {
+  name                = "testloganalytics"
+  resource_group_name = "global-resources"
+}
+
+output "log_analytics_workspace_id" {
+  value = data.azurerm_log_analytics_workspace.main.workspace_id
+}
