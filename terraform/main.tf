@@ -36,11 +36,6 @@ resource "azurerm_linux_web_app" "main" {
       java_server_version = "17"
     }
   }
-
-  app_settings = {
-    APPINSIGHTS_INSTRUMENTATIONKEY =  azurerm_application_insights.main.application_insights.instrumentation_key
-    APPLICATIONINSIGHTS_CONNECTION_STRING =  azurerm_application_insights.main.application_insights.connection_string
-  }
 }
 
 data "azurerm_log_analytics_workspace" "main" {
