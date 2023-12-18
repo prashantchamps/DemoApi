@@ -24,7 +24,8 @@ resource "azurerm_linux_web_app" "main" {
 
   depends_on = [
     azurerm_resource_group.main,
-    azurerm_service_plan.main
+    azurerm_service_plan.main,
+    azurerm_log_analytics_workspace.main
   ]
 
   site_config {
@@ -34,6 +35,11 @@ resource "azurerm_linux_web_app" "main" {
       java_server         = "JAVA"
       java_server_version = "17"
     }
+  }
+
+  app_settings = {
+    APPINSIGHTS_INSTRUMENTATIONKEY =  azurerm_application_insights.main.application_insights.instrumentation_key
+    APPLICATIONINSIGHTS_CONNECTION_STRING =  azurerm_application_insights.main.application_insights.connection_string
   }
 }
 
@@ -52,6 +58,6 @@ resource "azurerm_application_insights" "main" {
   depends_on = [
     azurerm_resource_group.main,
     azurerm_service_plan.main,
-    azurerm_linux_web_app.main
+    azurerm_log_analytics_workspace.main
   ]
 }
