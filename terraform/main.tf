@@ -37,11 +37,16 @@ resource "azurerm_linux_web_app" "main" {
   }
 }
 
+data "azurerm_log_analytics_workspace" "main" {
+  name                 = "testloganalytics"
+  resource_group_name  = "global-resources"
+}
+
 resource "azurerm_application_insights" "main" {
   name                = "api-demo-app-service-insight"
   location            = var.location
   resource_group_name = var.demo_api_rg
-  workspace_id        = var.workspace_id
+  workspace_id        = data.azurerm_log_analytics_workspace.example.id
   application_type    = "web"
 
   depends_on = [
