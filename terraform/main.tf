@@ -49,9 +49,4 @@ resource "azurerm_application_insights" "main" {
   resource_group_name = var.demo_api_rg
   workspace_id        = data.azurerm_log_analytics_workspace.main.id
   application_type    = "web"
-
-  depends_on = [
-    azurerm_resource_group.main,
-    azurerm_service_plan.main
-  ]
 }
