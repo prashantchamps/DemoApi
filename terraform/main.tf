@@ -24,7 +24,8 @@ resource "azurerm_linux_web_app" "main" {
 
   depends_on = [
     azurerm_resource_group.main,
-    azurerm_service_plan.main
+    azurerm_service_plan.main,
+    azurerm_application_insights.main
   ]
 
   site_config {
@@ -44,4 +45,12 @@ data "azurerm_log_analytics_workspace" "main" {
 
 output "log_analytics_workspace_id" {
   value = data.azurerm_log_analytics_workspace.main.workspace_id
+}
+
+resource "azurerm_application_insights" "main" {
+  name                = "api-demo-app-service-insight"
+  location            = var.location
+  resource_group_name = var.demo_api_rg
+  workspace_id        = data.azurerm_log_analytics_workspace.main.workspace_id
+  application_type    = "web"
 }
