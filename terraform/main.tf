@@ -37,10 +37,16 @@ resource "azurerm_linux_web_app" "main" {
   }
 }
 
-resource "azurerm_application_insights" "example" {
+resource "azurerm_application_insights" "main" {
   name                = "api-demo-app-service-insight"
   location            = var.location
   resource_group_name = var.demo_api_rg
   workspace_id        = ${{ secrets.TF_API_TOKEN }}
   application_type    = "web"
+
+  depends_on = [
+    azurerm_resource_group.main,
+    azurerm_service_plan.main,
+    azurerm_linux_web_app.main
+  ]
 }
