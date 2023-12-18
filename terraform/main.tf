@@ -25,7 +25,7 @@ resource "azurerm_linux_web_app" "main" {
   depends_on = [
     azurerm_resource_group.main,
     azurerm_service_plan.main,
-    azurerm_log_analytics_workspace.main
+    azurerm_application_insights.main
   ]
 
   site_config {
@@ -38,6 +38,11 @@ resource "azurerm_linux_web_app" "main" {
   }
 }
 
+data "azurerm_log_analytics_workspace" "main" {
+  name                 = "testloganalytics"
+  resource_group_name  = "global-resources"
+}
+
 resource "azurerm_application_insights" "main" {
   name                = "api-demo-app-service-insight"
   location            = var.location
@@ -47,7 +52,6 @@ resource "azurerm_application_insights" "main" {
 
   depends_on = [
     azurerm_resource_group.main,
-    azurerm_service_plan.main,
-    azurerm_log_analytics_workspace.main
+    azurerm_service_plan.main
   ]
 }
