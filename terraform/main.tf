@@ -36,3 +36,11 @@ resource "azurerm_linux_web_app" "main" {
     }
   }
 }
+
+resource "azurerm_application_insights" "example" {
+  name                = "api-demo-app-service-insight"
+  location            = var.location
+  resource_group_name = var.demo_api_rg
+  workspace_id        = var.workspace_id
+  application_type    = "web"
+}
