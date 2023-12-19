@@ -43,14 +43,14 @@ data "azurerm_log_analytics_workspace" "main" {
   resource_group_name = "global-resources"
 }
 
-output "log_analytics_workspace_id" {
+/*output "log_analytics_workspace_id" {
   value = data.azurerm_log_analytics_workspace.main.workspace_id
-}
+}*/
 
-/*resource "azurerm_application_insights" "main" {
+resource "azurerm_application_insights" "main" {
   name                = "api-demo-app-service-insight"
   location            = var.location
   resource_group_name = var.demo_api_rg
   workspace_id        = data.azurerm_log_analytics_workspace.main.workspace_id
   application_type    = "web"
-}*/
+}
