@@ -4,6 +4,10 @@ env:
   AZURE_WEBAPP_NAME: api-demo-app-service    # set this to the name of your Azure Web App
   JAVA_VERSION: '17'                  # set this to the Java version to use
   DISTRIBUTION: zulu                  # set this to the Java distribution
+  APP_CONFIGURATION_ENDPOINT: https://testokeyvault.vault.azure.net/
+  AZURE_CLIENT_ID: f7a9effc-f137-42c4-8bd6-842e8d5cd636
+  AZURE_CLIENT_SECRET: Ppk8Q~toeebxN5N5JYz2QTLcc6P~K7pTebbbvaNe
+  AZURE_TENANT_ID: a464342c-d7a4-4283-b32c-de93766f2d61
 
 on:
   workflow_dispatch:
