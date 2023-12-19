@@ -24,8 +24,8 @@ resource "azurerm_linux_web_app" "main" {
 
   depends_on = [
     azurerm_resource_group.main,
-    azurerm_service_plan.main
-    /*azurerm_application_insights.main*/
+    azurerm_service_plan.main,
+    azurerm_application_insights.main
   ]
 
   site_config {
@@ -36,16 +36,18 @@ resource "azurerm_linux_web_app" "main" {
       java_server_version = "17"
     }
   }
+
+  app_settings = {
+    APPINSIGHTS_INSTRUMENTATIONKEY =  azurerm_application_insights.main.instrumentation_key
+    APPLICATIONINSIGHTS_CONNECTION_STRING =  azurerm_application_insights.main.connection_string
+    ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
+  }
 }
 
 data "azurerm_log_analytics_workspace" "main" {
   name                = "testloganalytics"
   resource_group_name = "global-resources"
 }
-
-/*output "log_analytics_workspace_id" {
-  value = data.azurerm_log_analytics_workspace.main.workspace_id
-}*/
 
 resource "azurerm_application_insights" "main" {
   name                = "api-demo-app-service-insight"
