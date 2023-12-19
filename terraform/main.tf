@@ -51,6 +51,6 @@ resource "azurerm_application_insights" "main" {
   name                = "api-demo-app-service-insight"
   location            = var.location
   resource_group_name = var.demo_api_rg
-  workspace_id        = data.azurerm_log_analytics_workspace.main.workspace_id
+  workspace_id        = data.azurerm_log_analytics_workspace.main.id
   application_type    = "web"
 }
