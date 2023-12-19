@@ -41,6 +41,10 @@ resource "azurerm_linux_web_app" "main" {
     APPINSIGHTS_INSTRUMENTATIONKEY =  azurerm_application_insights.main.instrumentation_key
     APPLICATIONINSIGHTS_CONNECTION_STRING =  azurerm_application_insights.main.connection_string
     ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
+    APP_CONFIGURATION_ENDPOINT = "https://testokeyvault.vault.azure.net/"
+    AZURE_CLIENT_ID = "f7a9effc-f137-42c4-8bd6-842e8d5cd636"
+    AZURE_CLIENT_SECRET = "Ppk8Q~toeebxN5N5JYz2QTLcc6P~K7pTebbbvaNe"
+    AZURE_TENANT_ID = "a464342c-d7a4-4283-b32c-de93766f2d61"
   }
 }
 
